@@ -7,6 +7,7 @@ class Obstacle():
     def __init__(self):
         self.segments = []
         self.xcor = 290
+        self.speed = 3
 
     def create_obstacle(self):
         new_obstacle = Turtle()
@@ -19,12 +20,15 @@ class Obstacle():
         self.segments.append(new_obstacle)
         self.xcor += random.randint(20, 50)
 
-
-
-
-    def move(self, speed):
+    def move(self):
         for segment in self.segments:
-            segment.goto(segment.xcor() - speed, segment.ycor())
+            segment.goto(segment.xcor() - self.speed, segment.ycor())
+
+    def move_faster(self):
+        self.speed += 1
+
+    def reset_speed(self):
+        self.speed = 3
 
 
 

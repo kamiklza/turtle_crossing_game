@@ -19,3 +19,8 @@ class Level(Turtle):
         self.level += 1
         self.current_level()
 
+    def reset_level(self):
+        self.clear()
+        self.level = 0
+        self.current_level()
+

@@ -19,18 +19,25 @@ screen.onkey(player.move_down, "Down")
 screen.onkey(player.move_left, "Left")
 screen.onkey(player.move_right, "Right")
 
-obstacle_speed = 3
+
 is_game_on = True
 while is_game_on:
-    time.sleep(0.1)
+    time.sleep(0.05)
     obstacle.create_obstacle()
     screen.update()
-    obstacle.move(obstacle_speed)
+    obstacle.move()
 
     if player.ycor() > 280:
         player.reset_player()
         level.next_level()
-        obstacle_speed += 1
+        obstacle.move_faster()
+        player.speed_up()
+
+    for segment in obstacle.segments:
+        if player.distance(segment) < 18:
+            player.reset_player()
+            level.reset_level()
+            obstacle.reset_speed()
 
 
 screen.exitonclick()
