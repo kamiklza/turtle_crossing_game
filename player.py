@@ -10,8 +10,11 @@ class Player(Turtle):
         self.new_ycor = -280
         self.goto(self.new_xcor, self.new_ycor)
 
-    def move(self):
+    def move_up(self):
         self.forward(20)
+
+    def move_down(self):
+        self.backward(20)
 
     def move_left(self):
         self.new_xcor -= 20
@@ -20,3 +23,6 @@ class Player(Turtle):
     def move_right(self):
         self.new_xcor += 20
         self.goto(self.new_xcor, self.ycor())
+
+    def reset_player(self):
+        self.goto(self.new_xcor, self.new_ycor)
