@@ -24,3 +24,10 @@ class Level(Turtle):
         self.level = 0
         self.current_level()
 
+    def game_over(self):
+        self.goto(0,0)
+        self.penup()
+        self.hideturtle()
+        self.color("black")
+        self.write("Game Over", move=False, align="center", font=("Arial", 30, "normal"))
+

@@ -38,6 +38,8 @@ while is_game_on:
             player.reset_player()
             level.reset_level()
             obstacle.reset_speed()
+            level.game_over()
+            is_game_on = False
 
 
 screen.exitonclick()
